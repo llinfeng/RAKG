@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"Backed up to: $BACKUP_DIR\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
