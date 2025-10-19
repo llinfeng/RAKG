@@ -1,7 +1,15 @@
-from src.textPrcess import TextProcessor
-from src.kgAgent import NER_Agent
 import json
 import os
+import sys
+
+# Allow running the script directly (python src/construct/RAKG.py)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+from src.textPrcess import TextProcessor
+from src.kgAgent import NER_Agent
 
 def convert_to_valid_json(data):
     def format_value(obj):
