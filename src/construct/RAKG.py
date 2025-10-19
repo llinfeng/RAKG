@@ -1,13 +1,7 @@
-import os
-import sys
-import json
-
-# Add project root directory to Python path
-project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.append(project_root)
-
 from src.textPrcess import TextProcessor
 from src.kgAgent import NER_Agent
+import json
+import os
 
 def convert_to_valid_json(data):
     def format_value(obj):
@@ -42,14 +36,10 @@ def process_all_topics(json_path, output_dir):
     ner_agent = NER_Agent()
 
     start_index = 1
-    end_index = 1  # Only process first topic for testing
     # Iterate through each topic
     for idx, topic_data in enumerate(topics,start=1):
         if idx < start_index:
             continue  # Skip previous entries
-        if idx > end_index:
-            print(f"Stopping at topic {end_index} (test mode)")
-            break  # Stop after processing the first topic
         try:
             print(f"Processing topic {idx}/{len(topics)}: {topic_data['topic']}")
 
